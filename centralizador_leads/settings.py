@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-from decouple import config
+from decouple import config, AutoConfig
 
+config = AutoConfig(search_path=os.path.dirname(os.path.abspath(__file__)))
 
 
 
@@ -142,8 +143,8 @@ SEGURIDAD_API_TOKEN = config("SEGURIDAD_TOKEN")
 EXPONAVAL_API_TOKEN = config("EXPONAVAL_TOKEN")
 TRANSPORT_API_TOKEN = config("TRANSPORT_TOKEN")
 ENLOCE_API_TOKEN = config("ENLOCE_TOKEN")
-EXPOSALUD_API_TOKEN = config("EXPOSALUD_TOKEN")
-EXPOVIVIENDA_API_TOKEN = config("EXPOVIVIENDA_TOKEN")
+EXPOSALUD_API_TOKEN = config("SALUD_TOKEN")
+EXPOVIVIENDA_API_TOKEN = config("VIVIENDA_TOKEN")
 AQUASUR_API_TOKEN = config("AQUASUR_TOKEN")
 AQUASURTECH_API_TOKEN = config("AQUASURTECH_TOKEN")
 EXPOMIN_API_TOKEN = config("EXPOMIN_TOKEN")
