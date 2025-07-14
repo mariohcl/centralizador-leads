@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 40px;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+     
+
+      .wrap{
+        width: 100%;
+        background: white;
+      }
+      .wrap-body{
+        background: #f5faff;
+        padding-top: 20px;
+        padding-bottom: 50px;
+      }
+      .wrap-home{
+        background-color: #f5faff;
+      }
+      .wrap-center{
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .wrap-center-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 0;
+      }
+
+      .wrap-center img{
+        width: 250px;
+      }
+      .wrap-center h2 {
+        font-size: 20px;
+        color: rgb(84, 84, 84);
+        font-weight: 500;
+      }
+      .wrap-center h2.resumen {
+        font-size: 20px;
+        color: rgb(84, 84, 84);
+        font-weight: 600;
+        margin: 50px 0 20px;
+      }
+      .wrap-center span {
+        font-weight: 600;
+        color: #7660cc;
+      }
+
+      .nav-tabs{
+        
+      }
+
+      .nav-tabs li{
+        
+      }
+
+      .nav-tabs li a{
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        opacity: 0.5;
+      }
+      .nav-tabs li a.active{
+        opacity: 1;
+        background: none !important;
+        border: none;
+      }
+      
+      .header-block{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .actions-block{
+        width: 60%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .header-block-last{
+        margin-top: 40px;
+      }
+      .header-block p{
+        margin-bottom: 0;
+        background: #dcffcb;
+        width: 100%;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #b0fb8c;
+        font-size: 0.9rem;
+        color: #2f2f2f;
+      }
+      .header-block h5{
+        font-size: 17px;
+        font-weight: 600;
+        color: #454545;
+        margin: 0 !important;
+        line-height: initial;
+      }
+      .header-block .actions{
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .header-block label{
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(94, 94, 94);
+      }
+    .header-block form input[type=date]{
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(94, 94, 94);
+        margin-right: 10px;
+        transition: all 0.2s ease-in;
+      }
+      .header-block form input[type=date]:active,.header-block form input[type=date]:hover{
+        opacity: 0.5;
+      } 
+      
+      .header-block form.exportar{
+        margin-left: 5px;
+        margin-bottom: 0;
+      }
+      .header-block form.filtrar{
+        margin-bottom: 0 !important;
+      }
+      
+
+      .header-block form.filtrar button[type=submit],
+      .header-block form.exportar button[type=submit]{
+        border:none;
+        width: 42.5px;
+        height: 42.5px;
+        border-radius: 50px;
+        color: white;
+        font-size: 10px;
+        text-align: center;
+        transition: all 0.2s ease-in;
+      }
+
+      .header-block form.exportar button[type=submit]{
+        background-color: #008b00;
+        font-size: 15px;
+      }
+      .header-block form.filtrar button[type=submit]{
+        background-color: #7660cc;
+      }
+      .header-block form.filtrar a.limpiar,
+      .header-block form.exportar a.refresh{
+        border-radius: 50px;
+        width: 42.5px;
+        height: 42.5px;
+        position: relative;
+        border: none;
+        margin: 0 !important;
+        transition: all 0.2s ease-in;
+      }
+      .header-block form.filtrar a.limpiar{
+        background: #0394f4;
+      }
+      .header-block form.exportar a.refresh{
+        background: #03A9F4;
+        color: white;
+      }
+
+      .header-block form.filtrar a.limpiar i,
+      .header-block form.exportar a.refresh i{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .header-block form.filtrar button[type=submit]:hover,
+      .header-block form.exportar button[type=submit]:hover,
+      .header-block form.filtrar a.limpiar:hover,
+      .header-block form.exportar a.refresh:hover{
+        opacity: 0.5;
+      }
+
+      .table-results{
+        width: 100%;
+        background-color: white;
+        margin-top: 20px;
+        
+
+      }
+      .row-table-result{
+        display: flex;
+        justify-content: space-between;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+    .table-results.hovering .row-table-result {
+        opacity: 0.3;
+    }
+
+    .table-results.hovering .row-table-result.hover {
+        opacity: 1;
+    }
+
+      
+      .row-table-result-head{
+        background-color: rgb(230, 230, 230);
+      }
+      .row-table-result-head .block-result{
+        font-weight: 600;
+      }
+      .block-result{
+        width: 50%;
+        padding: 10px;
+        border-bottom: 1px solid rgb(224, 224, 224);
+        font-size: 15px;
+      }
+      
+      .block-result:first-child{
+        width: 60%;
+      }
+      .block-result:last-child{
+        width: 40%;
+      }
+
+
+      .spinner-button {
+        pointer-events: none;
+        opacity: 0.7;
+      }
+
+      .main-header{
+        background-color: #7660cc;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .main-header img.logo{
+        width: 30px;
+        height: 30px;
+      }
+
+      .main-header nav{
+        margin: 0;
+        display: flex;
+        align-items: center;
+      }
+      .main-header nav a.volver{
+        background-color: rgb(236, 236, 236);
+        padding: 10px 20px;
+        display: block;
+        border-radius: 50px;
+        text-decoration: none;
+        color: #484848;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.2s ease-in;
+      }
+      .main-header nav a.volver:hover{
+        opacity: 0.3;
+      }
+
+      .main-header nav form{
+        margin-bottom: 0;
+      }
+      .main-header nav span{
+        color: orange;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .main-header nav button{
+        background:none;
+        border:none;
+        padding: 10px 20px;
+        display: block;
+        border-radius: 50px;
+        text-decoration: none;
+        color: #dcd3ff;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.2s ease-in;
+      }
+      .main-header nav button:hover{
+        opacity: 0.3;
+      }
+
+      #nprogress .bar {
+        background: #d4025a !important; /* Cambia este color al que quieras */
+        height: 3px !important;
+    }
+
+    #nprogress .peg {
+        box-shadow: 0 0 10px #d4025a, 0 0 5px #d4025a !important; /* mismo color que arriba */
+    }
+
+    #nprogress .spinner-icon {
+        border-top-color: #d4025a !important;
+        border-left-color: #d4025a !important;
+    }
+
+
+    .main-footer{
+        background-color: #f5faff;
+        padding: 50px;
+        text-align: center;
+    }
+    .main-footer p{
+        font-size: 12px;
+        color: rgb(107, 107, 107);
+    }
+
+    .wrap-center-home{
+        min-height: 100vh;
+        padding-top: 50px;
+        text-align: center;
+    }
+    .wrap-center-home h2{
+        font-size: 30px;
+        font-weight: 600;
+        color: #363636;
+    }
+    .wrap-center-home h2 span{
+        color: #7660cc;
+    }
+    .wrap-center-home h5{
+        font-weight: 600;
+        color: grey;
+        font-size: 15px;
+    }
+    .wrap-center-home p{
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    
+    .grid-ferias{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+    .single-feria{
+        width: 30%;
+        background-color: white;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 30px;
+        border: 1px solid #d3e9ff;
+        border-radius: 10px;
+    }
+    .single-feria a{
+        font-weight: 600;
+        color: rgb(69, 69, 69);
+        font-size: 20px;
+        width: 100%;
+        height: 100%;
+        transition: all 0.2s ease-in;
+    }
+    .single-feria a:hover{
+        opacity: 0.2;
+    }
+    .single-feria a .feria-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .single-feria a img{
+        width: 200px;
+    }
+ 
+    .login{
+      background-color: #2a333c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .card-login{
+      background-color: #323c48;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 5px;
+      align-items: center;
+    }
+    .card-login img{
+      width: 50px;
+      margin-bottom: 20px;
+    }
+    .card-login h3{
+        color: #999ea5;
+      font-size: 0.9rem;
+      
+    }
+    .card-login form{
+      margin-top: 20px;
+      width: 80%;
+    }
+    .label-custom{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .card-login form label{
+      font-size: 0.7rem;
+      color: #7a818a;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .card-login form input[type=text], .card-login form input[type=password]{
+      border: none;
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+
+    .card-login form button[type=submit]{
+      background: #7660cc;
+      border: none;
+      border-radius: 0;
+      font-size: 0.8rem;
+      padding: 15px 0;
+      transition: all 0.2s ease-in;
+      margin-top: 20px;
+    }
+    .card-login form button[type=submit]:hover{
+      opacity: 0.5;
+    }
+    .card-login p{
+      font-size: 0.65rem;
+      color: #999ea5;
+      margin: 10px 0;
+    }
