@@ -426,7 +426,7 @@
       margin-bottom: 5px;
       font-weight: 500;
     }
-    .card-login form input[type=text], .card-login form input[type=password]{
+    .card-login form input[type=text], .card-login form input[type=password], .card-login form input[type=email]{
       border: none;
       padding: 10px;
       font-size: 0.8rem;
@@ -448,4 +448,13 @@
       font-size: 0.65rem;
       color: #999ea5;
       margin: 10px 0;
+    }
+    .card-login p.done{
+      text-align: center;
+    }
+    .card-login a.pass{
+          color: #7660cc;
+          text-decoration: none;
+          font-size: 12px;
+          font-weight: 600;
     }
