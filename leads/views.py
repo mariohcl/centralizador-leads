@@ -19,26 +19,18 @@ from django.utils.text import slugify
 from leads.models import Lead
 from django.template.loader import render_to_string
 from django.conf import settings
+from django.contrib.auth.models import Group
+from django.http import HttpResponseForbidden
 
 
+def user_can_access_feria(user, feria_slug: str) -> bool:
+    if not user.is_authenticated:
+        return False
+    if user.is_superuser:
+        return True
+    # acepta 'feria:<slug>' o '<slug>'
+    return user.groups.filter(name__in=[f"feria:{feria_slug}", feria_slug]).exists()
 
-
-@login_required
-def ferias_panel(request):
-    ferias = [
-        {'slug': 'hyvolution', 'nombre': 'Hyvolution'},
-        {'slug': 'seguridadexpo', 'nombre': 'SeguridadExpo'},
-        {'slug': 'exponaval', 'nombre': 'Exponaval'},
-        {'slug': 'transport', 'nombre': 'Transport'},
-        {'slug': 'enloce', 'nombre': 'Enloce'},
-        {'slug': 'exposalud', 'nombre': 'Exposalud'},
-        {'slug': 'expovivienda', 'nombre': 'Expovivienda'},
-        {'slug': 'aquasur', 'nombre': 'Aquasur'},
-        {'slug': 'aquasurtech', 'nombre': 'Aquasurtech'},
-        {'slug': 'expomin', 'nombre': 'Expomin'},
-        # agrega las demás ferias aquí
-    ]
-    return render(request, 'ferias.html', {'ferias': ferias})
 
 
 @login_required
@@ -52,6 +44,8 @@ def redireccion_dashboard(request):
 def dashboard_feria(request, feria_slug):
     if feria_slug not in FERIAS:
         return HttpResponse("Feria no válida", status=404)
+    if not user_can_access_feria(request.user, feria_slug):
+        return HttpResponseForbidden("No tienes permiso para ver esta feria.")
 
     endpoint = FERIAS[feria_slug]
     datos_por_idioma = {}
@@ -108,6 +102,10 @@ def dashboard_feria(request, feria_slug):
 # --- EXPORTAR A EXCEL ---
 @login_required
 def exportar_excel_feria(request, feria_slug):
+    if not user_can_access_feria(request.user, feria_slug):
+        return HttpResponseForbidden("No tienes permiso para esta acción.")
+
+
     lang = request.GET.get("lang", "es")  # por defecto: español
 
     if feria_slug not in FERIAS:
@@ -226,10 +224,17 @@ def ferias_panel(request):
         {'slug': 'expomin', 'nombre': 'Expomin', 'logo': 'logos/expomin.png'},
         # ... continúa con las demás
     ]
+    if not request.user.is_superuser:
+        allowed = set(request.user.groups.values_list('name', flat=True))
+        ferias = [f for f in ferias if f['slug'] in allowed or f"feria:{f['slug']}" in allowed]
+
     return render(request, 'ferias.html', {'ferias': ferias})
 
 @login_required
 def actualizar_leads(request, feria_slug):
+    if not user_can_access_feria(request.user, feria_slug):
+        return HttpResponseForbidden("No tienes permiso para esta acción.")
+
     lang = request.GET.get("lang", "es")
 
     if feria_slug not in FERIAS:
