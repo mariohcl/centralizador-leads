@@ -421,8 +421,6 @@
       margin-bottom: 20px;
     }
 
-   
-
     .card-login form label{
       font-size: 0.7rem;
       color: #7a818a;
@@ -434,6 +432,7 @@
       padding: 10px;
       font-size: 0.8rem;
       width: 100%;
+      
     }
 
     .label-custom .input-group .eye{
