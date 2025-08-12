@@ -35,7 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-gj*r(94h0n)lvb2yku9=hbi4l@cblh5i#p1^=e)s%)%wqe_0r*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['leads.fisa.cl', '127.0.0.1', 'localhost']
 

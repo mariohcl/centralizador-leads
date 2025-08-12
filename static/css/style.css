@@ -420,6 +420,9 @@
       flex-direction: column;
       margin-bottom: 20px;
     }
+
+   
+
     .card-login form label{
       font-size: 0.7rem;
       color: #7a818a;
@@ -430,7 +433,26 @@
       border: none;
       padding: 10px;
       font-size: 0.8rem;
+      width: 100%;
     }
+
+    .label-custom .input-group .eye{
+      position: absolute;
+      right: 0;
+      border: none;
+      height: 100%;
+      transition: all 0.2s ease-in;
+    }
+    .label-custom .input-group .eye:hover{
+      background: rgb(255, 255, 255);
+    }
+    .label-custom .input-group .eye:hover > .fas{
+      color: grey;
+    }
+    .label-custom .input-group .eye .fas{
+     font-size: 0.8rem;
+    }
+
 
     .card-login form button[type=submit]{
       background: #7660cc;
