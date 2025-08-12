@@ -53,9 +53,9 @@ def redireccion_dashboard(request):
 def dashboard_feria(request, feria_slug):
     if feria_slug not in FERIAS:
         return HttpResponse("Feria no válida", status=404)
-    if not (request.user.is_superuser or request.user.is_staff):
-        if feria_slug not in _user_group_slugs(request.user):
-            return HttpResponse("No autorizado", status=403)
+    if not user_can_access_feria(request.user, feria_slug):
+        return HttpResponse("No autorizado", status=403)
+
 
 
     endpoint = FERIAS[feria_slug]
@@ -113,9 +113,8 @@ def dashboard_feria(request, feria_slug):
 # --- EXPORTAR A EXCEL ---
 @login_required
 def exportar_excel_feria(request, feria_slug):
-    if not (request.user.is_superuser or request.user.is_staff):
-        if feria_slug not in _user_group_slugs(request.user):
-            return HttpResponse("No autorizado", status=403)
+    if not user_can_access_feria(request.user, feria_slug):
+        return HttpResponse("No autorizado", status=403)
 
 
     lang = request.GET.get("lang", "es")  # por defecto: español
@@ -236,11 +235,12 @@ def ferias_panel(request):
         {'slug': 'aquasurtech', 'nombre': 'Aquasurtech', 'logo': 'logos/aquasurtech.png'},
         {'slug': 'expomin', 'nombre': 'Expomin', 'logo': 'logos/expomin.png'},
     ]
-    if request.user.is_superuser or request.user.is_staff:
+    if request.user.is_superuser:
         ferias = todas
     else:
         permitidos = _user_group_slugs(request.user)
         ferias = [f for f in todas if f['slug'] in permitidos]
+
 
     if not ferias:
         from django.contrib import messages
@@ -250,9 +250,9 @@ def ferias_panel(request):
 
 @login_required
 def actualizar_leads(request, feria_slug):
-    if not (request.user.is_superuser or request.user.is_staff):
-        if feria_slug not in _user_group_slugs(request.user):
-            return HttpResponse("No autorizado", status=403)
+    if not user_can_access_feria(request.user, feria_slug):
+        return HttpResponse("No autorizado", status=403)
+
 
     lang = request.GET.get("lang", "es")
 
