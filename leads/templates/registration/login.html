@@ -16,6 +16,25 @@
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+    <style>
+          .label-custom .input-group .eye{
+            position: absolute;
+            right: 0;
+            border: none;
+            height: 100%;
+            transition: all 0.2s ease-in;
+          }
+          .label-custom .input-group .eye:hover{
+            background: rgb(255, 255, 255);
+          }
+          .label-custom .input-group .eye:hover > .fas{
+            color: grey;
+          }
+          .label-custom .input-group .eye .fas{
+          font-size: 0.8rem;
+          }
+    </style>
+
   </head>
   <body class="login">
 
